@@ -1,0 +1,150 @@
+@page
+@model StatsModel
+@{
+    ViewData["Title"] = "Stats page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 text-primary text-uppercase">Weekly Statistics </h1>
+    
+    <div>
+        <table class="table">
+                <thead class="text-primary">
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay == "Monday").ToList().Count() == 3? "class= bg-success": "")>Monday</th>
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay == "Tuesday").ToList().Count() == 3? "class= bg-success": "")>Tuesday</th>
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay == "Wednesday").ToList().Count() == 3? "class= bg-success": "")>Wednesday</th>
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay == "Thursday").ToList().Count() == 3? "class= bg-success": "")>Thursday</th>
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay == "Friday").ToList().Count() == 3? "class= bg-success": "")>Friday</th>
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay == "Saturday").ToList().Count() == 3? "class= bg-success": "")>Saturday</th>
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay == "Sunday").ToList().Count() == 3? "class= bg-success": "")>Sunday</th>
+                </thead>
+                <tbody class="table-group-divider">
+                   @for(int i = 0; i < 3; i++)
+                   {
+                        <tr>
+                            @if(Model.waiters.Where(o => o.ShiftDay == "Monday").ToList().Count() > 0 && Model.waiters.Where(o => o.ShiftDay == "Monday").ToList().Count() > i)
+                            {
+                               <td>
+                                    @Model.waiters.Where(o => o.ShiftDay == "Monday").ToList()[i].Name
+                               </td> 
+                            }
+                            else
+                            {
+                               <td class="bg-warning"> - </td>
+                            }
+                            @if(Model.waiters.Where(o => o.ShiftDay == "Tuesday").ToList().Count() > 0 && Model.waiters.Where(o => o.ShiftDay == "Tuesday").ToList().Count() > i)
+                           {
+                               <td>
+                                    @Model.waiters.Where(o => o.ShiftDay == "Tuesday").ToList()[i].Name
+                               </td> 
+                            }
+                            else
+                            {
+                                <td class="bg-warning"> - </td>
+                            }
+                            @if(Model.waiters.Where(o => o.ShiftDay == "Wednesday").ToList().Count() > 0 && Model.waiters.Where(o => o.ShiftDay == "Wednesday").ToList().Count() > i)
+                            {
+                               <td>
+                                    @Model.waiters.Where(o => o.ShiftDay == "Wednesday").ToList()[i].Name
+                               </td> 
+                            }
+                            else
+                            {
+                                <td class="bg-warning"> - </td>
+                            }
+                            @if(Model.waiters.Where(o => o.ShiftDay == "Thursday").ToList().Count() > 0 && Model.waiters.Where(o => o.ShiftDay == "Thursday").ToList().Count() > i)
+                            {
+                               <td>
+                                    @Model.waiters.Where(o => o.ShiftDay == "Thursday").ToList()[i].Name
+                               </td> 
+                            }
+                            else
+                            {
+                                <td class="bg-warning"> - </td>
+                            }
+                            @if(Model.waiters.Where(o => o.ShiftDay == "Friday").ToList().Count() > 0 && Model.waiters.Where(o => o.ShiftDay == "Friday").ToList().Count() > i)
+                            {
+                               <td>
+                                    @Model.waiters.Where(o => o.ShiftDay == "Friday").ToList()[i].Name
+                               </td> 
+                            }
+                            else
+                            {
+                                <td class="bg-warning"> - </td>
+                            }
+                            @if(Model.waiters.Where(o => o.ShiftDay == "Saturday").ToList().Count() > 0 && Model.waiters.Where(o => o.ShiftDay == "Saturday").ToList().Count() > i)
+                            {
+                               <td>
+                                    @Model.waiters.Where(o => o.ShiftDay == "Saturday").ToList()[i].Name
+                               </td> 
+                            }
+                            else
+                            {
+                                <td class="bg-warning"> - </td>
+                            }
+                            @if(Model.waiters.Where(o => o.ShiftDay == "Sunday").ToList().Count() > 0 && Model.waiters.Where(o => o.ShiftDay == "Sunday").ToList().Count() > i)
+                            {
+                               <td>
+                                    @Model.waiters.Where(o => o.ShiftDay == "Sunday").ToList()[i].Name
+                               </td> 
+                            }
+                            else
+                            {
+                                <td class="bg-warning"> - </td>
+                            }
+                        </tr>
+                   }
+                </tbody>
+                <tfooter>
+                    <tr>
+                        <td colspan="6">
+                            <p class="text text-primary h4">available working days: @(21 - Model.waiters.Count())</p>
+                        </td>
+                        <td>
+                            <form asp-page-handler="clear" method="post">
+                                <button class="btn btn-danger">Clear All</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tfooter>
+            </table>
+           
+    </div>
+</div>
+
+ <div class="mt-5">
+    <p class="text text-primary  text-uppercase h4">Available spots for each woking day:</p>
+    @if(Model.waiters.Where(o => o.ShiftDay == "Monday").ToList().Count() <  3)
+    {
+        <p class="text" > Monday: @(3 -Model.waiters.Where(o => o.ShiftDay == "Monday").ToList().Count())</p>
+    } 
+    @if(Model.waiters.Where(o => o.ShiftDay == "Tuesday").ToList().Count() < 3)
+    {
+        <p class= "text" > Tuesday: @(3 -Model.waiters.Where(o => o.ShiftDay == "Tuesday").ToList().Count())</p>
+    }
+    @if(Model.waiters.Where(o => o.ShiftDay == "Wenesday").ToList().Count() < 3)
+    {
+        <p class="text">Wednesday: @(3 -Model.waiters.Where(o => o.ShiftDay == "Wednesday").ToList().Count())</p>
+    }
+    @if(Model.waiters.Where(o => o.ShiftDay == "Thursday").ToList().Count() < 3)
+    {
+        <p class="text">Thursday: @(3 -Model.waiters.Where(o => o.ShiftDay == "Thursday").ToList().Count())</p>
+    }
+    @if(Model.waiters.Where(o => o.ShiftDay == "Friday").ToList().Count() < 3)
+    {
+        <p class="text">Friday: @(3 -Model.waiters.Where(o => o.ShiftDay == "Friday").ToList().Count())</p>
+    }
+    @if(Model.waiters.Where(o => o.ShiftDay == "Saturday").ToList().Count() < 3)
+    {
+        <p class="text">Saturday: @(3 -Model.waiters.Where(o => o.ShiftDay == "Saturday").ToList().Count())</p>
+    }
+    @if(Model.waiters.Where(o => o.ShiftDay == "Sunday").ToList().Count() < 3)
+    {
+       <p class="tex">Sunday: @(3 -Model.waiters.Where(o => o.ShiftDay == "Sunday").ToList().Count())</p>
+    } 
+</div>
+<div class="d-flex justify-content-end">
+    <form asp-page-handler="back" method="post">
+        <button class="btn btn-warning">Back</button>
+    </form>
+</div>

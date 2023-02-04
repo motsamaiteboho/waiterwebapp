@@ -17,6 +17,26 @@ public class WaiterManger: IWaiterManger
             connection.Execute(CREATE_WAITER_TABLE);
         }
     }
+    public IEnumerable<Waiter> GetWaiters()
+    {
+        using (var connection = new SqliteConnection(_connectionString))
+        {
+            var waiters = connection.Query<Waiter>(@"select * from waiter");
+            return waiters;
+        }
+    }
+
+    public Waiter GetWaiter(string Name)
+    {
+        var template = new Waiter { Name = Name };
+        var parameters = new DynamicParameters(template);
+        var sql = @"select * from waiter where Name = @Name";
+        using (var connection = new SqliteConnection(_connectionString))
+        {
+            var waiter = connection.QueryFirstOrDefault<Waiter>(sql, parameters);
+            return waiter;
+        }
+    }
 
      public bool Add( Waiter waiter, List<string> shiftDays)
     {
@@ -106,6 +126,14 @@ public class WaiterManger: IWaiterManger
         {
             var waiters= connection.Query<string>(sql, parameters);
             return waiters;
+        }
+    }
+     public void Clear()
+    {
+        using (var connection = new SqliteConnection(_connectionString))
+        {
+            var sql = @"delete from waiter;";
+            connection.Execute(sql);
         }
     }
 

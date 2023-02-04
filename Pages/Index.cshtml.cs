@@ -54,8 +54,6 @@ public class IndexModel : PageModel
 
     public IActionResult OnPostStats(Waiter waiter)
     {
-        Console.WriteLine(waiter.Name);
-        Console.WriteLine("Stats");
-        return RedirectToPage("/Index");
+        return RedirectToPage("/Stats");
     }
 }

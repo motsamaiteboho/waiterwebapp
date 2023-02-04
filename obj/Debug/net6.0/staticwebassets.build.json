@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a3ww6P+mkcXMS3VcJoL3SbGnuwTOBf4Sww4adxz2Vwk=",
+  "Hash": "fekQYDEuEUUJE7unIh4T5jIv4kHx0buKrJczmEjYyD8=",
   "Source": "WaiterWebApp",
   "BasePath": "_content/WaiterWebApp",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Teboho Motsamai\\Documents\\bootcamp\\WaiterWebApp\\wwwroot\\images\\hotel-waiter.jpg",
+      "SourceId": "WaiterWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Teboho Motsamai\\Documents\\bootcamp\\WaiterWebApp\\wwwroot\\",
+      "BasePath": "_content/WaiterWebApp",
+      "RelativePath": "images/hotel-waiter.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotel-waiter.jpg"
     },
     {
       "Identity": "C:\\Users\\Teboho Motsamai\\Documents\\bootcamp\\WaiterWebApp\\wwwroot\\js\\site.js",
