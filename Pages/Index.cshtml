@@ -39,10 +39,36 @@
             <div>
                 <button asp-page-handler="Add" type="submit" class="btn btn-success float-right">Add working days</button>
             </div>
-
              <div>
                 <button asp-page-handler="stats"  class="btn btn-info">View Weekly stats</button>
             </div>
+        </div>
+
+        <div class=" t-4">
+            @if(!string.IsNullOrEmpty(Model.FeedBackMessage))
+            {
+                @if(Model.FeedBackMessage.Contains("filled"))
+                {
+                    <div class="alert alert-warning alert-dismissible fade show mt-4">
+                        <strong>@Model.FeedBackMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+                else if(Model.FeedBackMessage.Contains("select"))
+                {
+                    <div class="alert alert-danger  alert-dismissible fade show mt-4">
+                        <strong>@Model.FeedBackMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-success  alert-dismissible fade show mt-4">
+                        <strong>@Model.FeedBackMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+            }
         </div>
     </form>
 </div>

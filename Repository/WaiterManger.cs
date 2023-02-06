@@ -38,8 +38,9 @@ public class WaiterManger: IWaiterManger
         }
     }
 
-     public bool Add( Waiter waiter, List<string> shiftDays)
+     public string Add( Waiter waiter, List<string> shiftDays)
     {
+        string days = "";
         using (var connection = new SqliteConnection(_connectionString))
         {
             foreach(var day in shiftDays)
@@ -60,10 +61,10 @@ public class WaiterManger: IWaiterManger
                 }
                 else
                 {
-                    return false;
+                    days += day + "," ;
                 }
             }
-            return true;
+            return days;
         }
        
     }
@@ -83,8 +84,9 @@ public class WaiterManger: IWaiterManger
         }
     }
 
-    public bool update(Waiter waiter , List<string> newDays)
+    public string update(Waiter waiter , List<string> newDays)
     {
+        string days = "";
         using (var connection = new SqliteConnection(_connectionString))
         {
             var template = new { Name = waiter.Name};
@@ -110,11 +112,11 @@ public class WaiterManger: IWaiterManger
                 }
                  else
                 {
-                    return false;
+                   days += day + "," ;
                 }
             }
         }
-        return true;
+        return days;
     }
 
     public IEnumerable<string> NamesOfWaitersPerDay(string? pShiftDay)
