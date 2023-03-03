@@ -106,3 +106,5 @@ C:\Users\Teboho Motsamai\Documents\bootcamp\WaiterWebApp\obj\Debug\net6.0\refint
 C:\Users\Teboho Motsamai\Documents\bootcamp\WaiterWebApp\obj\Debug\net6.0\WaiterWebApp.pdb
 C:\Users\Teboho Motsamai\Documents\bootcamp\WaiterWebApp\obj\Debug\net6.0\WaiterWebApp.genruntimeconfig.cache
 C:\Users\Teboho Motsamai\Documents\bootcamp\WaiterWebApp\obj\Debug\net6.0\ref\WaiterWebApp.dll
+C:\Users\Teboho Motsamai\Documents\bootcamp\WaiterWebApp\bin\Debug\net6.0\Blazor.Extensions.Storage.JS.dll
+C:\Users\Teboho Motsamai\Documents\bootcamp\WaiterWebApp\bin\Debug\net6.0\Blazor.Extensions.Storage.dll

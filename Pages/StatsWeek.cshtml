@@ -1,7 +1,7 @@
-@page "{username}"
-@model StatsModel
+page "{username}"
+@model StatsWeekModel
 @{
-    ViewData["Title"] = "Stats page";
+    ViewData["Title"] = "Stats Wek2 page";
 }
 
 <div class="text-center">
@@ -9,12 +9,12 @@
         <p> Welcome @Model.username</p>
     </div>
 
-    <h1 class="display-4 text-primary text-uppercase">Week 1 Statistics </h1>
+    <h1 class="display-4 text-primary text-uppercase">Week 2 Statistics </h1>
     
     <div>
         <table class="table">
                 <thead class="text-primary">
-                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay.Contains("Monday")).ToList().Count() == 3? "class= bg-success": "")>Monday</th>
+                    <th scope="col" @(Model.waiters.Where(o => o.ShiftDay.Contains( "Monday")).ToList().Count() == 3? "class= bg-success": "")>Monday</th>
                     <th scope="col" @(Model.waiters.Where(o => o.ShiftDay.Contains("Tuesday")).ToList().Count() == 3? "class= bg-success": "")>Tuesday</th>
                     <th scope="col" @(Model.waiters.Where(o => o.ShiftDay.Contains("Wednesday")).ToList().Count() == 3? "class= bg-success": "")>Wednesday</th>
                     <th scope="col" @(Model.waiters.Where(o => o.ShiftDay.Contains("Thursday")).ToList().Count() == 3? "class= bg-success": "")>Thursday</th>
@@ -149,10 +149,6 @@
 </div>
 <div class="d-flex justify-content-end">
     <form asp-page-handler="back" method="post">
-        <button class="btn btn-warning">Back</button>
-    </form>
-     <p>     </P>
-    <form asp-page-handler="next" method="post">
-        <button class="btn btn-warning">Next Week</button>
+        <button class="btn btn-warning">Previous Week</button>
     </form>
 </div>

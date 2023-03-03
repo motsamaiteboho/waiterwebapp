@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 namespace WaiterWebApp.Pages;
 
-public class StatsModel : PageModel
+public class StatsWeekModel : PageModel
 {
     private readonly IWaiterManger waiterManger;
-    public StatsModel( IWaiterManger pWaiterManger)
+    public StatsWeekModel( IWaiterManger pWaiterManger)
     {
         waiterManger = pWaiterManger;
     }
@@ -21,7 +21,7 @@ public class StatsModel : PageModel
     public void OnGet(string username)
     {
         this.username = username;
-        waiters = waiterManger.GetWaitersWeek1();
+        waiters = waiterManger.GetWaitersWeek2();
     }
 
     public IActionResult OnPost()
@@ -36,18 +36,12 @@ public class StatsModel : PageModel
     public IActionResult OnPostBack()
     {
         HttpContext.Session.Clear();
-         return RedirectToPage("/Index");
-    }
-    public IActionResult OnPostNext()
-    {
-        //Console.WriteLine("tee");
-        return RedirectToPage("/StatsWeek");
-        //return RedirectToPage("/StatsWeek", new { username =  username });
+        return RedirectToPage("/Stats", new { username =  username });
     }
      public IActionResult OnPostClear()
     {
-        waiterManger.ClearWeek1();
-        return RedirectToPage("/Stats");
+        waiterManger.ClearWeek2();
+        return RedirectToPage("/StatsWeek");
     }
 
 }

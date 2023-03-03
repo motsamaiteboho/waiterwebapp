@@ -8,11 +8,27 @@
     ".NETCoreApp,Version=v6.0": {
       "WaiterWebApp/1.0.0": {
         "dependencies": {
+          "Blazor.Extensions.Storage": "1.0.0",
           "Dapper": "2.0.123",
           "Microsoft.Data.Sqlite": "7.0.2"
         },
         "runtime": {
           "WaiterWebApp.dll": {}
+        }
+      },
+      "Blazor.Extensions.Storage/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "3.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard2.0/Blazor.Extensions.Storage.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Dapper/2.0.123": {
@@ -23,6 +39,35 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authorization/3.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "3.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Options": "3.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Components/3.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "3.0.0",
+          "Microsoft.AspNetCore.Components.Analyzers": "3.0.0",
+          "Microsoft.JSInterop": "3.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/3.0.0": {},
+      "Microsoft.AspNetCore.Components.Forms/3.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/3.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.0.0",
+          "Microsoft.AspNetCore.Components.Forms": "3.0.0",
+          "Microsoft.Extensions.DependencyInjection": "3.0.0",
+          "Microsoft.JSInterop": "3.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/3.0.0": {},
       "Microsoft.Data.Sqlite/7.0.2": {
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": "7.0.2",
@@ -40,6 +85,21 @@
           }
         }
       },
+      "Microsoft.Extensions.DependencyInjection/3.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/3.0.0": {},
+      "Microsoft.Extensions.Logging.Abstractions/3.0.0": {},
+      "Microsoft.Extensions.Options/3.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Primitives": "3.0.0"
+        }
+      },
+      "Microsoft.Extensions.Primitives/3.0.0": {},
+      "Microsoft.JSInterop/3.0.0": {},
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
         "dependencies": {
           "SQLitePCLRaw.lib.e_sqlite3": "2.1.2",
@@ -197,12 +257,61 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Blazor.Extensions.Storage/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jCHiySrIdL2m/8VTB4Tm7TGpwYAa2/yO5xCZb6egJvUkmp72wTS38CRY9gZQYyMiD05EhtlRgtAYCl4GF9FY0A==",
+      "path": "blazor.extensions.storage/1.0.0",
+      "hashPath": "blazor.extensions.storage.1.0.0.nupkg.sha512"
+    },
     "Dapper/2.0.123": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-RDFF4rBLLmbpi6pwkY7q/M6UXHRJEOerplDGE5jwEkP/JGJnBauAClYavNKJPW1yOTWRPIyfj4is3EaJxQXILQ==",
       "path": "dapper/2.0.123",
       "hashPath": "dapper.2.0.123.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authorization/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pylAplpaC5r3YIh2OR4RcYCSYoMc/sZwHyGeyT43IbSMN+TqvO05pAybaFcNxPeZ+HxDP2LcRO/R1XHSCB2GKw==",
+      "path": "microsoft.aspnetcore.authorization/3.0.0",
+      "hashPath": "microsoft.aspnetcore.authorization.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aH23865LRGx21C36zNY0xcWzYRvQIqXsUzcR/9BIH/UezsNV2eWOKQaCkQItzo2RG2ebRkWk6livhc0VLeEt7Q==",
+      "path": "microsoft.aspnetcore.components/3.0.0",
+      "hashPath": "microsoft.aspnetcore.components.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XqYERMlbxaVzcab5NVv1OyVh8KzEq8cSpfk2QSS6/9qtlkPEuNoDsEyPVlkIDktev66PhRhreq2W85r2siezmQ==",
+      "path": "microsoft.aspnetcore.components.analyzers/3.0.0",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Forms/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oEFexkEnQTIedyfBU2FA16cPrEesBj+sa73Xr9V7xnqu2Tl7alHdCA/u0oJhzYsmY4qpcN2GA15yeAl4fNXOCw==",
+      "path": "microsoft.aspnetcore.components.forms/3.0.0",
+      "hashPath": "microsoft.aspnetcore.components.forms.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Web/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Efu7Lj0T6MONxkgp/33rbcIErg7x9Uy97/jmOF2AaUJ5cGOuQFKLMvkOL3gR7qEYoodr8XE49Tm8cE/CHJHZhQ==",
+      "path": "microsoft.aspnetcore.components.web/3.0.0",
+      "hashPath": "microsoft.aspnetcore.components.web.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gXT2t+bocyv4aCwwfrATy8QMHHZTRqZ/grmUzC+76MA1M+S0TIXp+BK3dEkvADVkhsAdERb5DnjqQKX3G/uMYQ==",
+      "path": "microsoft.aspnetcore.metadata/3.0.0",
+      "hashPath": "microsoft.aspnetcore.metadata.3.0.0.nupkg.sha512"
     },
     "Microsoft.Data.Sqlite/7.0.2": {
       "type": "package",
@@ -217,6 +326,48 @@
       "sha512": "sha512-JeATjPNhC0I4g44MRlG9xJ0hbOYgizlV/UAJXzzSGjVPn9ohwr8yO2SrC3jhvTwD3wpL/MrAck/aORhLM/ayoQ==",
       "path": "microsoft.data.sqlite.core/7.0.2",
       "hashPath": "microsoft.data.sqlite.core.7.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yDsuNA/BT4j9qrcRs0NUNHQAJfywFWX18ZZ+shxXJL+/nIfz3vhuRTfnYgvFeQlNBlgmgdSjOcs4ajgoS6Q/Ng==",
+      "path": "microsoft.extensions.dependencyinjection/3.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ofQRroDlzJ0xKOtzNuaVt6QKNImFkhkG0lIMpGl7PtXnIf5SuLWBeiQZAP8DNSxDBJJdcsPkiJiMYK2WA5H8dQ==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/3.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+PsosTYZn+omucI0ff9eywo9QcPLwcbIWf7dz7ZLM1zGR8gVZXJ3wo6+tkuIedUNW5iWENlVJPEvrGjiVeoNNQ==",
+      "path": "microsoft.extensions.logging.abstractions/3.0.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aZuVhN/TC872Yb55nrb7an82sfSAdNYxIyzu3zbYHOnhwal5hdkBUxzuoYj1khI2sw0tWq6i82i624zEFmiJhg==",
+      "path": "microsoft.extensions.options/3.0.0",
+      "hashPath": "microsoft.extensions.options.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6gwewTbmOh+ZVBicVkL1XRp79sx4O7BVY6Yy+7OYZdwn3pyOKe9lOam+3gXJ3TZMjhJZdV0Ub8hxHt2vkrmN5Q==",
+      "path": "microsoft.extensions.primitives/3.0.0",
+      "hashPath": "microsoft.extensions.primitives.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.JSInterop/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1MsiDhjO/GUXYzvhjDGs+xvVNHxsGZ1mlpIAhdVEvmVP5GHiUGoy3DcJVRewmfasyfD3nfFnuLiteLZXlF1ajw==",
+      "path": "microsoft.jsinterop/3.0.0",
+      "hashPath": "microsoft.jsinterop.3.0.0.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
       "type": "package",

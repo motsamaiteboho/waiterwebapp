@@ -1,75 +1,82 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 namespace WaiterWebApp.Pages;
 
 public class IndexModel : PageModel
 {
-    
-    private readonly IWaiterManger waiterManger;
-    public IndexModel(IWaiterManger pWaiterManger)
+    private readonly IUserManger userManger;
+    public IndexModel(IUserManger pUserManger)
     {
-        waiterManger = pWaiterManger;
+        userManger = pUserManger;
     }
-    public string[] ShiftDays = new[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
     [BindProperty(SupportsGet = true), Required]
-    public Waiter waiter { get; set; }
+    public user user { get; set; }
 
     [BindProperty(SupportsGet = true)]
     public string FeedBackMessage {get; set;} = string.Empty;
-
-    [BindProperty]
-    public List<string> SelectedShiftDays { get; set; } = new List<string>();
 
     public void OnGet()
     {
 
     }
-    public IActionResult OnPostAdd()
+    public IActionResult OnPostSignIn()
     {
-        var shiftdays = this.SelectedShiftDays;
-        string result = waiterManger.Add(waiter, shiftdays);
-        if(shiftdays.Count() > 0 && shiftdays.Count() <= 3)
+        //if (ModelState.IsValid)
+        //{
+        //    return Page();
+        //}
+        //Console.WriteLine(HttpContext.Session.GetString(user.username));
+
+        if(!string.IsNullOrEmpty(user.username) && !string.IsNullOrEmpty(user.password))
         {
-            if( string.IsNullOrEmpty(result))
+          HttpContext.Session.SetString("username", user.username);
+          HttpContext.Session.SetInt32("counter",0);
+          if(userManger.GetUsers().ToList().FirstOrDefault(o => o.username == user.username) != null)
+          {
+            user existuser = userManger.GetUser(user.username);
+
+           if(user.username == "Teboho")
+           { 
+            if(existuser.password == user.password)
             {
-                FeedBackMessage = "successfully added ";
+               return RedirectToPage("/Stats", new { username =  user.username });
+                //return RedirectToPage("/StatsWeek", new { username =  user.username });
+            }
+            else
+            {
+                FeedBackMessage = "incorrect password";
+                return Page();
+            }
+            }
+            if(existuser.password == user.password)
+            {
+                if(existuser != null)
+                {
+                    return RedirectToPage("/Schedule", new { username =  user.username });
+                }
+            }
+            else
+            {
+                FeedBackMessage = "incorrect password";
                 return Page();
             }
         }
         else
         {
-            FeedBackMessage = "select atleast 1 working day";
-            return Page();
+            return RedirectToPage("/Registration");
         }
-        FeedBackMessage = result + " is/are filled";
+        }
+        FeedBackMessage = "all fields are required";
         return Page();
     }
 
-    public IActionResult OnPostUpdate()
+    public IActionResult OnPostReg()
     {
-        var shiftdays = this.SelectedShiftDays;
-        string result = waiterManger.Add(waiter, shiftdays);
-        if(shiftdays.Count() > 0 && shiftdays.Count() <= 3)
-        {
-            if(string.IsNullOrEmpty( waiterManger.update(waiter, shiftdays) ))
-            {
-                FeedBackMessage = "successfully updated";
-                return Page();
-            }
-        }
-        else
-        {
-             FeedBackMessage = "select atleast 1 working day";
-             return Page();
-        }
-        FeedBackMessage = result + " is/are filled";
-        return Page();
+        return RedirectToPage("/Registration");
     }
 
-    public IActionResult OnPostStats(Waiter waiter)
-    {
-        return RedirectToPage("/Stats");
-    }
+    
 }
